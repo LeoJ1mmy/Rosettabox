@@ -1,0 +1,691 @@
+{
+  "GPT": {
+    "corrections": [
+      "G P T",
+      "gpt",
+      "g.p.t.",
+      "gee pee tee",
+      "jpt",
+      "gp t"
+    ],
+    "context": [
+      "ai",
+      "model",
+      "language",
+      "chat",
+      "openai"
+    ],
+    "priority": 10,
+    "case_sensitive": true
+  },
+  "ChatGPT": {
+    "corrections": [
+      "chat gpt",
+      "chat g p t",
+      "chatgpt",
+      "chat GPT"
+    ],
+    "context": [
+      "ai",
+      "openai",
+      "conversation"
+    ],
+    "priority": 10,
+    "case_sensitive": false
+  },
+  "LLM": {
+    "corrections": [
+      "L L M",
+      "l.l.m.",
+      "llm",
+      "L.L.M.",
+      "el el em"
+    ],
+    "context": [
+      "model",
+      "language",
+      "ai",
+      "large"
+    ],
+    "priority": 9,
+    "case_sensitive": true
+  },
+  "AI": {
+    "corrections": [
+      "A I",
+      "a.i.",
+      "A.I.",
+      "ay eye"
+    ],
+    "context": [
+      "artificial",
+      "intelligence",
+      "machine",
+      "learning"
+    ],
+    "priority": 8,
+    "case_sensitive": true
+  },
+  "MCP": {
+    "corrections": [
+      "M C P",
+      "m.c.p.",
+      "M.C.P.",
+      "em cee pee"
+    ],
+    "context": [
+      "protocol",
+      "model",
+      "context"
+    ],
+    "priority": 9,
+    "case_sensitive": true
+  },
+  "Agent": {
+    "corrections": [
+      "ajent",
+      "agant",
+      "eigent"
+    ],
+    "context": [
+      "ai",
+      "autonomous",
+      "intelligent"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "NVIDIA": {
+    "corrections": [
+      "in video",
+      "nvidia",
+      "n video",
+      "N video",
+      "en video"
+    ],
+    "context": [
+      "gpu",
+      "cuda",
+      "graphics",
+      "rtx"
+    ],
+    "priority": 10,
+    "case_sensitive": true
+  },
+  "CUDA": {
+    "corrections": [
+      "cuda",
+      "C U D A",
+      "c.u.d.a.",
+      "cooda"
+    ],
+    "context": [
+      "nvidia",
+      "gpu",
+      "parallel",
+      "computing"
+    ],
+    "priority": 9,
+    "case_sensitive": true
+  },
+  "GPU": {
+    "corrections": [
+      "G P U",
+      "g.p.u.",
+      "gee pee you",
+      "gpus"
+    ],
+    "context": [
+      "graphics",
+      "nvidia",
+      "cuda",
+      "processing"
+    ],
+    "priority": 9,
+    "case_sensitive": true
+  },
+  "CPU": {
+    "corrections": [
+      "C P U",
+      "c.p.u.",
+      "see pee you",
+      "cpus"
+    ],
+    "context": [
+      "processor",
+      "intel",
+      "amd",
+      "computing"
+    ],
+    "priority": 8,
+    "case_sensitive": true
+  },
+  "RTX": {
+    "corrections": [
+      "R T X",
+      "r.t.x.",
+      "R.T.X.",
+      "artex"
+    ],
+    "context": [
+      "nvidia",
+      "gpu",
+      "graphics",
+      "5070"
+    ],
+    "priority": 8,
+    "case_sensitive": true
+  },
+  "PyTorch": {
+    "corrections": [
+      "py torch",
+      "pytorch",
+      "pie torch",
+      "pi torch"
+    ],
+    "context": [
+      "deep",
+      "learning",
+      "neural",
+      "network"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "TensorFlow": {
+    "corrections": [
+      "tensor flow",
+      "tensorflow",
+      "tenser flow"
+    ],
+    "context": [
+      "google",
+      "machine",
+      "learning",
+      "neural"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "Whisper": {
+    "corrections": [
+      "whisper",
+      "wisper",
+      "whisperer"
+    ],
+    "context": [
+      "openai",
+      "speech",
+      "transcription",
+      "audio"
+    ],
+    "priority": 10,
+    "case_sensitive": false
+  },
+  "Ollama": {
+    "corrections": [
+      "ollama",
+      "olama",
+      "o lama",
+      "oh lama"
+    ],
+    "context": [
+      "llm",
+      "model",
+      "local",
+      "inference"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "vLLM": {
+    "corrections": [
+      "v llm",
+      "V LLM",
+      "v L L M",
+      "vllm"
+    ],
+    "context": [
+      "inference",
+      "server",
+      "model",
+      "fast"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "Flask": {
+    "corrections": [
+      "flask",
+      "flasks",
+      "flasque"
+    ],
+    "context": [
+      "python",
+      "web",
+      "framework",
+      "api"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "React": {
+    "corrections": [
+      "react",
+      "re-act",
+      "reakt"
+    ],
+    "context": [
+      "javascript",
+      "frontend",
+      "component",
+      "ui"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "API": {
+    "corrections": [
+      "A P I",
+      "a.p.i.",
+      "A.P.I.",
+      "ay pee eye"
+    ],
+    "context": [
+      "interface",
+      "rest",
+      "endpoint",
+      "http"
+    ],
+    "priority": 8,
+    "case_sensitive": true
+  },
+  "REST": {
+    "corrections": [
+      "R E S T",
+      "rest",
+      "r.e.s.t."
+    ],
+    "context": [
+      "api",
+      "http",
+      "web",
+      "service"
+    ],
+    "priority": 7,
+    "case_sensitive": true
+  },
+  "HTTP": {
+    "corrections": [
+      "H T T P",
+      "h.t.t.p.",
+      "aitch tee tee pee"
+    ],
+    "context": [
+      "protocol",
+      "web",
+      "request",
+      "api"
+    ],
+    "priority": 8,
+    "case_sensitive": true
+  },
+  "JSON": {
+    "corrections": [
+      "J S O N",
+      "j.s.o.n.",
+      "jason",
+      "jay son"
+    ],
+    "context": [
+      "data",
+      "format",
+      "api",
+      "javascript"
+    ],
+    "priority": 8,
+    "case_sensitive": true
+  },
+  "Python": {
+    "corrections": [
+      "python",
+      "pyton",
+      "pithon"
+    ],
+    "context": [
+      "programming",
+      "language",
+      "code",
+      "script"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "JavaScript": {
+    "corrections": [
+      "java script",
+      "javascript",
+      "jscript"
+    ],
+    "context": [
+      "programming",
+      "web",
+      "frontend",
+      "node"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "TypeScript": {
+    "corrections": [
+      "type script",
+      "typescript",
+      "ts"
+    ],
+    "context": [
+      "javascript",
+      "typed",
+      "programming",
+      "microsoft"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "OpenAI": {
+    "corrections": [
+      "open ai",
+      "ope。ai",
+      "openai",
+      "open a.i.",
+      "open AI"
+    ],
+    "context": [
+      "gpt",
+      "chatgpt",
+      "whisper",
+      "ai",
+      "api"
+    ],
+    "priority": 10,
+    "case_sensitive": false
+  },
+  "Google": {
+    "corrections": [
+      "google",
+      "gogle",
+      "googel"
+    ],
+    "context": [
+      "search",
+      "cloud",
+      "tensorflow",
+      "ai"
+    ],
+    "priority": 6,
+    "case_sensitive": false
+  },
+  "Microsoft": {
+    "corrections": [
+      "microsoft",
+      "micro soft",
+      "MS"
+    ],
+    "context": [
+      "windows",
+      "azure",
+      "copilot",
+      "office"
+    ],
+    "priority": 6,
+    "case_sensitive": false
+  },
+  "PostgreSQL": {
+    "corrections": [
+      "postgres",
+      "post gres",
+      "postgresql",
+      "postgre sql"
+    ],
+    "context": [
+      "database",
+      "sql",
+      "relational",
+      "data"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "MongoDB": {
+    "corrections": [
+      "mongo db",
+      "mongo",
+      "mongodb"
+    ],
+    "context": [
+      "database",
+      "nosql",
+      "document",
+      "json"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "Redis": {
+    "corrections": [
+      "redis",
+      "reedis",
+      "read is"
+    ],
+    "context": [
+      "cache",
+      "database",
+      "memory",
+      "key"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "Gemini": {
+    "corrections": [
+      "gemi。i",
+      "gemini",
+      "gem i ni",
+      "geminai"
+    ],
+    "context": [
+      "google",
+      "ai",
+      "model",
+      "llm"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "mini": {
+    "corrections": [
+      "mi。i",
+      "mm",
+      "mini",
+      "miny"
+    ],
+    "context": [
+      "model",
+      "gpt",
+      "version",
+      "4.1"
+    ],
+    "priority": 8,
+    "case_sensitive": false
+  },
+  "token": {
+    "corrections": [
+      "toke。",
+      "token",
+      "tokens",
+      "tok en"
+    ],
+    "context": [
+      "api",
+      "limit",
+      "count",
+      "usage"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "agent": {
+    "corrections": [
+      "age。t",
+      "agent",
+      "agents",
+      "ajent"
+    ],
+    "context": [
+      "ai",
+      "autonomous",
+      "intelligent",
+      "system"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "document": {
+    "corrections": [
+      "docume。",
+      "document",
+      "doc",
+      "documents"
+    ],
+    "context": [
+      "file",
+      "text",
+      "content",
+      "upload"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "HTML": {
+    "corrections": [
+      "hdmi",
+      "HTML",
+      "H T M L",
+      "h.t.m.l."
+    ],
+    "context": [
+      "web",
+      "page",
+      "website",
+      "markup"
+    ],
+    "priority": 9,
+    "case_sensitive": true
+  },
+  "prompt": {
+    "corrections": [
+      "pump",
+      "prompt",
+      "prompts",
+      "prom pt"
+    ],
+    "context": [
+      "ai",
+      "instruction",
+      "system",
+      "template"
+    ],
+    "priority": 9,
+    "case_sensitive": false
+  },
+  "CSV": {
+    "corrections": [
+      "C S V",
+      "c.s.v.",
+      "csv",
+      "CSV"
+    ],
+    "context": [
+      "file",
+      "data",
+      "excel",
+      "spreadsheet"
+    ],
+    "priority": 8,
+    "case_sensitive": true
+  },
+  "temperature": {
+    "corrections": [
+      "temperature",
+      "temp",
+      "temprature"
+    ],
+    "context": [
+      "ai",
+      "parameter",
+      "model",
+      "setting"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "web search": {
+    "corrections": [
+      "web search",
+      "websearch",
+      "web searching"
+    ],
+    "context": [
+      "google",
+      "internet",
+      "online",
+      "search"
+    ],
+    "priority": 7,
+    "case_sensitive": false
+  },
+  "file": {
+    "corrections": [
+      "file",
+      "files",
+      "fyl"
+    ],
+    "context": [
+      "upload",
+      "download",
+      "document",
+      "data"
+    ],
+    "priority": 6,
+    "case_sensitive": false
+  },
+  "model": {
+    "corrections": [
+      "model",
+      "models",
+      "modle"
+    ],
+    "context": [
+      "ai",
+      "llm",
+      "gpt",
+      "training"
+    ],
+    "priority": 8,
+    "case_sensitive": false
+  },
+  "demo": {
+    "corrections": [
+      "demo",
+      "demos",
+      "demonstration"
+    ],
+    "context": [
+      "test",
+      "example",
+      "sample",
+      "trial"
+    ],
+    "priority": 6,
+    "case_sensitive": false
+  }
+}

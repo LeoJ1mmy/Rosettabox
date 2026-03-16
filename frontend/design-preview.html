@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Summary UI Design Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Option 1: Modern Notion-Style */
+        .option-1 table {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            width: 100%;
+        }
+
+        .option-1 thead {
+            background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        .option-1 th {
+            font-weight: 600;
+            font-size: 14px;
+            color: #374151;
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        .option-1 tbody tr {
+            border-bottom: 1px solid #f3f4f6;
+            transition: background-color 0.15s;
+        }
+
+        .option-1 tbody tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .option-1 tbody tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .option-1 td {
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #1f2937;
+        }
+
+        .option-1 h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        .option-1 h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            padding-left: 12px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .option-1 h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #374151;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .option-1 ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 12px 0;
+        }
+
+        .option-1 ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .option-1 ul li::before {
+            content: "•";
+            position: absolute;
+            left: 12px;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .option-1 strong {
+            font-weight: 600;
+            color: #1f2937;
+            background-color: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .option-1 code {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            background-color: #f3f4f6;
+            color: #dc2626;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .option-1 blockquote {
+            margin: 16px 0;
+            padding: 12px 16px;
+            border-left: 4px solid #3b82f6;
+            background-color: #eff6ff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Option 2: Material Design */
+        .option-2 table {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .option-2 thead {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        .option-2 th {
+            font-weight: 500;
+            padding: 16px;
+            text-align: left;
+        }
+
+        .option-2 tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .option-2 tbody tr:nth-child(odd) {
+            background-color: #fafafa;
+        }
+
+        .option-2 td {
+            padding: 12px 16px;
+        }
+
+        .option-2 h1 {
+            font-size: 32px;
+            font-weight: 400;
+            color: #1976d2;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #1976d2;
+            padding-bottom: 8px;
+        }
+
+        .option-2 h2 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #424242;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .option-2 strong {
+            font-weight: 600;
+            color: #1976d2;
+        }
+
+        /* Option 3: GitHub Style */
+        .option-3 table {
+            border: 1px solid #d0d7de;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .option-3 th {
+            background-color: #f6f8fa;
+            border: 1px solid #d0d7de;
+            padding: 6px 13px;
+            font-weight: 600;
+        }
+
+        .option-3 td {
+            border: 1px solid #d0d7de;
+            padding: 6px 13px;
+        }
+
+        .option-3 tbody tr:nth-child(even) {
+            background-color: #f6f8fa;
+        }
+
+        .option-3 h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #1f2328;
+            border-bottom: 1px solid #d0d7de;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .option-3 h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2328;
+            border-bottom: 1px solid #d0d7de;
+            padding-bottom: 8px;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        .option-3 code {
+            background-color: rgba(175,184,193,0.2);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-family: 'Monaco', monospace;
+            font-size: 85%;
+        }
+
+        .option-3 strong {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-gray-900">AI Summary UI Design Comparison</h1>
+        <p class="text-gray-600 mb-8">Compare the three design options with sample AI summary content:</p>
+
+        <!-- Option 1: Modern Notion-Style -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-blue-600">Option 1: Modern Notion-Style ⭐ (Recommended)</h2>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Clean & Scannable</span>
+            </div>
+
+            <div class="option-1 p-6 bg-gray-50 rounded-lg">
+                <h1>會議摘要報告</h1>
+
+                <h2>主要討論重點</h2>
+                <ul>
+                    <li>產品開發進度順利，預計 <strong>Q2 上線</strong></li>
+                    <li>市場反饋良好，用戶滿意度達 <strong>92%</strong></li>
+                    <li>需要增加 <code>API</code> 文檔的完整性</li>
+                </ul>
+
+                <h3>重要數據統計</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>當前值</th>
+                            <th>目標值</th>
+                            <th>完成度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>用戶增長</td>
+                            <td>8,500</td>
+                            <td>10,000</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>收入目標</td>
+                            <td>$450K</td>
+                            <td>$500K</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>Bug 修復</td>
+                            <td>45</td>
+                            <td>50</td>
+                            <td>90%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    💡 <strong>建議</strong>：下個月重點關注用戶留存率的提升，目標從 75% 提升到 80%
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- Option 2: Material Design -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-indigo-600">Option 2: Material Design 3</h2>
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Bold & Modern</span>
+            </div>
+
+            <div class="option-2 p-6 bg-gray-50 rounded-lg">
+                <h1>會議摘要報告</h1>
+
+                <h2>主要討論重點</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>產品開發進度順利，預計 <strong>Q2 上線</strong></li>
+                    <li>市場反饋良好，用戶滿意度達 <strong>92%</strong></li>
+                    <li>需要增加 API 文檔的完整性</li>
+                </ul>
+
+                <h2>重要數據統計</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>當前值</th>
+                            <th>目標值</th>
+                            <th>完成度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>用戶增長</td>
+                            <td>8,500</td>
+                            <td>10,000</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>收入目標</td>
+                            <td>$450K</td>
+                            <td>$500K</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>Bug 修復</td>
+                            <td>45</td>
+                            <td>50</td>
+                            <td>90%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Option 3: GitHub Style -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Option 3: GitHub-Style Documentation</h2>
+                <span class="px-3 py-1 bg-gray-200 text-gray-800 rounded-full text-sm font-medium">Traditional & Clean</span>
+            </div>
+
+            <div class="option-3 p-6 bg-gray-50 rounded-lg">
+                <h1>會議摘要報告</h1>
+
+                <h2>主要討論重點</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>產品開發進度順利，預計 <strong>Q2 上線</strong></li>
+                    <li>市場反饋良好，用戶滿意度達 <strong>92%</strong></li>
+                    <li>需要增加 <code>API</code> 文檔的完整性</li>
+                </ul>
+
+                <h2>重要數據統計</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>當前值</th>
+                            <th>目標值</th>
+                            <th>完成度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>用戶增長</td>
+                            <td>8,500</td>
+                            <td>10,000</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>收入目標</td>
+                            <td>$450K</td>
+                            <td>$500K</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>Bug 修復</td>
+                            <td>45</td>
+                            <td>50</td>
+                            <td>90%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Feature Comparison -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold mb-6 text-gray-900">Feature Comparison</h2>
+            <table class="w-full">
+                <thead>
+                    <tr class="border-b-2 border-gray-300">
+                        <th class="text-left p-4 font-semibold">Feature</th>
+                        <th class="text-left p-4 font-semibold">Option 1 (Notion)</th>
+                        <th class="text-left p-4 font-semibold">Option 2 (Material)</th>
+                        <th class="text-left p-4 font-semibold">Option 3 (GitHub)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-200">
+                        <td class="p-4 font-medium">Visual Style</td>
+                        <td class="p-4">✨ Modern, Clean</td>
+                        <td class="p-4">🎨 Bold, Colorful</td>
+                        <td class="p-4">📝 Traditional, Simple</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 bg-gray-50">
+                        <td class="p-4 font-medium">Readability</td>
+                        <td class="p-4">⭐⭐⭐⭐⭐</td>
+                        <td class="p-4">⭐⭐⭐⭐</td>
+                        <td class="p-4">⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr class="border-b border-gray-200">
+                        <td class="p-4 font-medium">Scannability</td>
+                        <td class="p-4">⭐⭐⭐⭐⭐</td>
+                        <td class="p-4">⭐⭐⭐⭐</td>
+                        <td class="p-4">⭐⭐⭐</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 bg-gray-50">
+                        <td class="p-4 font-medium">Color Usage</td>
+                        <td class="p-4">Subtle, Semantic</td>
+                        <td class="p-4">Bold, Primary</td>
+                        <td class="p-4">Minimal, Gray</td>
+                    </tr>
+                    <tr class="border-b border-gray-200">
+                        <td class="p-4 font-medium">Table Style</td>
+                        <td class="p-4">Hover effects, Subtle borders</td>
+                        <td class="p-4">Elevation, Striped rows</td>
+                        <td class="p-4">Full borders, Traditional</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 bg-gray-50">
+                        <td class="p-4 font-medium">Best For</td>
+                        <td class="p-4">All content types</td>
+                        <td class="p-4">Data-heavy content</td>
+                        <td class="p-4">Technical documentation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Instructions -->
+        <div class="mt-8 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+            <h3 class="text-lg font-bold text-blue-900 mb-2">📋 How to Choose</h3>
+            <ul class="list-disc list-inside space-y-2 text-blue-800">
+                <li><strong>Option 1</strong>: Best for general use, excellent readability, modern look</li>
+                <li><strong>Option 2</strong>: Best for data-heavy summaries, bold visual hierarchy</li>
+                <li><strong>Option 3</strong>: Best for technical content, familiar to developers</li>
+            </ul>
+            <p class="mt-4 text-blue-900">
+                <strong>Recommendation:</strong> Option 1 (Modern Notion-Style) offers the best balance of aesthetics, readability, and scannability for AI-generated summaries.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

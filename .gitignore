@@ -1,24 +1,28 @@
-# Environment & secrets
-.env
-.env.*
-*.pem
-*.key
-*.crt
-credentials.json
-secrets/
-
 # Python
+*.pyc
+*.pyo
+*.pyd
 __pycache__/
-*.py[cod]
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 *.egg-info/
 dist/
 build/
-venv/
-.venv/
+.pytest_cache/
 
-# Node
+# Node.js
 node_modules/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+package-lock.json
 
 # IDE
 .vscode/
@@ -29,16 +33,109 @@ npm-debug.log*
 
 # OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Docker
-docker-compose.override.yml
+# AI Models & Cache
+*.bin
+*.safetensors
+*.onnx
+*.pt
+*.pth
+models/
+checkpoints/
+.cache/
+.huggingface/
+transformers_cache/
+
+# Audio Files (臨時音頻文件)
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.aac
+*.wma
+audio_temp/
+temp/
+tmp/
+backend/uploads/
 
 # Logs
 *.log
 logs/
+log/
 
-# Data
-*.sqlite3
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+.env.production
+
+# Database
 *.db
-task_storage/
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.backup
+*.bak
+app.py.backup
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Frontend build
+frontend/dist/
+frontend/build/
+
+# Temporary files
+*.tmp
+*.temp
+
+# GPU/CUDA cache
+.nv/
+
+# Ollama models (如果本地存儲)
+ollama_models/
+.ollama/
+
+# Custom project specific
+demo-usage.md.backup
+*.example
+config.local.json
+
+# Activity logs (IP operation logs, no sensitive data)
+backend/activity_logs/
+
+# Formula-Contract work files
+.claude/settings.local.json
+.claude/formula/workflow/
+.claude/formula/history/
+
+# Production native process files
+.prod-backend.pid
+.prod-frontend.pid
+prod-backend.log
+
+# Maintenance mode runtime files
+maintenance/.maintenance.pid
+maintenance/maintenance.log
+maintenance/.cloudflare_config

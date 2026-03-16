@@ -1,0 +1,169 @@
+# Production-only Docker setup for ASUS GX10 / NVIDIA GB10
+# GB10 Grace Blackwell: 128GB unified memory, CUDA 13.0, ARM64
+
+services:
+  # Production Backend
+  backend-prod:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: voice-processor-backend-prod
+    runtime: nvidia  # Explicit NVIDIA runtime for GPU access
+    network_mode: host  # Use host network to access Ollama on localhost
+    # ports not needed with host network mode - backend listens on host's port 3080 directly
+    env_file:
+      - .env.production
+    volumes:
+      - ./backend:/app
+      - prod-uploads:/app/uploads  # Separate volume for prod data
+      - huggingface-cache:/root/.cache/huggingface  # HuggingFace models
+      - whisper-cache:/root/.cache/whisper  # OpenAI Whisper models
+      - torch-cache:/root/.cache/torch  # PyTorch cache
+      - clearvoice-cache:/root/.cache/clearvoice  # ClearerVoice speech enhancement models
+      - /var/run/docker.sock:/var/run/docker.sock  # Docker socket for vLLM lifecycle management
+    environment:
+      - PORT=3080
+      - WERKZEUG_SERVER_FD=-1
+      - PYTHONUNBUFFERED=1
+      # GB10 GPU configuration
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,video
+      - DOCKER_ENV=true
+      # Force GPU mode for VibeVoice ASR
+      - VIBEVOICE_DEVICE=cuda
+      - CUDA_VISIBLE_DEVICES=0
+      # PyTorch GB10 optimizations (25.09-py3 container has full sm_120 support)
+      - PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+      # Enable TF32 for faster inference (GB10 Blackwell supports it)
+      - NVIDIA_TF32_OVERRIDE=1
+      # torch.compile optimization
+      - TORCH_COMPILE_BACKEND=inductor
+      - TORCHINDUCTOR_CACHE_DIR=/tmp/torch_cache
+      # Disable debug for faster inference
+      - TORCH_SHOW_CPP_STACKTRACES=0
+      - CUDA_LAUNCH_BLOCKING=0
+    restart: unless-stopped
+    # GB10 recommended settings
+    ipc: host  # Required for PyTorch shared memory
+    stop_grace_period: 30s
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      stack:
+        soft: 67108864
+        hard: 67108864
+      nofile:
+        soft: 65536
+        hard: 65536
+    # Enable GPU access
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, compute, utility]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3080/api/info"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Auth Gateway (Nginx + Flask auth on port 5180)
+  auth-gateway:
+    build:
+      context: .
+      dockerfile: auth-gateway/Dockerfile
+    container_name: voice-processor-auth-gateway
+    network_mode: host
+    environment:
+      - AUTH_SECRET_KEY=${AUTH_SECRET_KEY:-rosettabox-auth-secret-2024}
+      - AUTH_SESSION_MAX_AGE=${AUTH_SESSION_MAX_AGE:-86400}
+    volumes:
+      - ./auth-gateway/auth_users.json:/app/auth_users.json:ro
+    depends_on:
+      - backend-prod
+      - frontend-prod
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5180/auth/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Production Frontend
+  frontend-prod:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: voice-processor-frontend-prod
+    network_mode: host  # Use host network to access backend on localhost
+    # ports not needed with host network mode - frontend listens on host's port 5173 directly
+    env_file:
+      - .env.production
+    volumes:
+      - ./frontend:/app
+      - prod-node-modules:/app/node_modules  # Named volume for node_modules
+    environment:
+      - VITE_PORT=5173
+      # Frontend 使用 host network，可以直接訪問 localhost:3080
+      - VITE_BACKEND_URL=http://localhost:3080
+    depends_on:
+      - backend-prod
+    restart: unless-stopped
+    # Increase limits for proxy operations
+    stop_grace_period: 30s
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5173"]
+      interval: 60s
+      timeout: 30s
+      retries: 5
+      start_period: 120s
+
+  # Cloudflare Tunnel (public access via *.leopilot.com)
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: voice-processor-cloudflared
+    network_mode: host
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      - ./cloudflared/config.yml:/etc/cloudflared/config.yml:ro
+      - ./cloudflared/credentials.json:/etc/cloudflared/credentials.json:ro
+    depends_on:
+      - auth-gateway
+      - frontend-prod
+      - backend-prod
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "cloudflared", "tunnel", "info", "--output", "json", "ee2c4dbf-aeb1-47da-8e11-685154d02c2e"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+# Named volumes for production data persistence
+volumes:
+  prod-uploads:
+    driver: local
+  prod-node-modules:
+    driver: local
+  huggingface-cache:
+    driver: local
+  whisper-cache:
+    driver: local
+  torch-cache:
+    driver: local
+  clearvoice-cache:
+    driver: local
+
+# Custom network for service communication
+networks:
+  voice-processor-network:
+    driver: bridge

@@ -1,0 +1,62 @@
+# Flask Web Framework
+flask==2.3.3
+flask-cors==4.0.0
+
+# AI/ML 核心依賴
+transformers>=4.35.2
+# GPU 版本的 PyTorch (Ubuntu/Linux) - 支持 RTX 5070 Ti (Blackwell架構)
+# 當前安裝: torch 2.8.0 + CUDA 12.8
+# torch>=2.8.0
+# torchaudio>=2.8.0
+# 安裝指令: pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu128
+# 
+# 如果沒有 GPU，使用 CPU 版本：
+# torch>=2.2.0+cpu
+# torchaudio>=2.2.0+cpu
+
+# 音訊處理依賴
+librosa>=0.10.1
+soundfile>=0.12.1
+pyloudnorm>=0.1.0
+noisereduce>=3.0.0           # 頻譜閘門降噪（CPU-only，輕量）
+# clearvoice>=0.2.0          # 神經網路語音增強（可選，需 GPU，pip install clearvoice）
+accelerate>=0.24.1
+
+# 文字處理和編碼
+sentencepiece>=0.1.99
+protobuf>=4.24.4
+
+# 數學和科學計算
+# 固定 NumPy 版本以避免與 PyTorch 的兼容性問題
+numpy>=1.24.3,<2.0.0
+scipy>=1.11.3
+
+# 網路和HTTP
+requests>=2.31.0
+aiohttp>=3.9.0
+
+# 系統和資源管理
+psutil>=5.9.0
+
+# 文檔生成依賴
+python-docx>=0.8.11
+
+# Whisper 優化依賴
+# CTranslate2 用於優化 Whisper 推理效能 (支持 CUDA 12.8 + cuDNN 9.x)
+ctranslate2>=4.6.0
+# faster-whisper 用於更快的 Whisper 推理 (支持 RTX 5070 Ti)
+faster-whisper>=1.0.0
+
+# 環境和配置
+python-dotenv>=1.0.0
+
+# Web 框架相關
+werkzeug>=2.3.0
+
+# 安全性依賴
+python-magic>=0.4.27  # 文件內容驗證 (magic number checking)
+Flask-Limiter>=3.5.0  # API 速率限制
+
+# 額外功能依賴
+# 用於音訊轉換和處理
+# ffmpeg-python>=0.2.0  # 可選：如果需要額外的音訊格式支持

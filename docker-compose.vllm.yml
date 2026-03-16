@@ -1,0 +1,54 @@
+# ===========================================
+# vLLM Docker Compose for GX10
+# NVIDIA GB10 Grace Blackwell (ARM64, 128GB)
+# ===========================================
+#
+# Usage:
+#   docker compose -f docker-compose.vllm.yml up -d
+#
+# Sources:
+#   - NVIDIA NGC vLLM: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/vllm
+#   - vLLM Docker docs: https://docs.vllm.ai/en/stable/deployment/docker/
+
+services:
+  vllm:
+    image: nvcr.io/nvidia/vllm:25.11-py3
+    container_name: vllm-server
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - HF_TOKEN=${HF_TOKEN}
+      - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN}
+    volumes:
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    ports:
+      - "8000:8000"
+    command: >
+      --model google/gemma-3-27b-it
+      --host 0.0.0.0
+      --port 8000
+      --dtype bfloat16
+      --max-model-len 65536
+      --gpu-memory-utilization 0.85
+      --tensor-parallel-size 1
+      --trust-remote-code
+      --enable-prefix-caching
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+networks:
+  default:
+    name: voice-processor-network
+    external: true

@@ -1,0 +1,798 @@
+{
+  "version": "2.1.0",
+  "last_updated": "2026-01-29",
+  "description": "Hot words for LEO meeting transcription - focused on products, vendors, personnel and AI terms",
+  "schema_version": "2.0",
+  "categories": {
+    "company_personnel": {
+      "enabled": true,
+      "priority": "highest",
+      "description": "LEO Computer personnel - names and titles",
+      "terms": [
+        {
+          "word": "國眾電腦",
+          "annotation": "LEO Computer - 台灣 IT 服務與系統整合公司",
+          "aliases": [
+            "國眾",
+            "LEO"
+          ]
+        },
+        {
+          "word": "總經理",
+          "annotation": "General Manager - 公司最高管理者",
+          "aliases": [
+            "GM"
+          ]
+        },
+        {
+          "word": "副總經理",
+          "annotation": "Deputy General Manager - 副總",
+          "aliases": [
+            "副總",
+            "AVP"
+          ]
+        },
+        {
+          "word": "協理",
+          "annotation": "Associate Vice President - 高階主管",
+          "aliases": [
+            "AVP"
+          ]
+        },
+        {
+          "word": "經理",
+          "annotation": "Manager - 部門主管",
+          "aliases": [
+            "Manager"
+          ]
+        },
+        {
+          "word": "副理",
+          "annotation": "Assistant Manager - 副部門主管",
+          "aliases": []
+        },
+        {
+          "word": "課長",
+          "annotation": "Section Chief - 課級主管",
+          "aliases": []
+        },
+        {
+          "word": "專員",
+          "annotation": "Specialist - 專業人員",
+          "aliases": []
+        },
+        {
+          "word": "工程師",
+          "annotation": "Engineer - 技術人員",
+          "aliases": [
+            "RD",
+            "研發"
+          ]
+        },
+        {
+          "word": "資深工程師",
+          "annotation": "Senior Engineer - 資深技術人員",
+          "aliases": [
+            "SR Engineer"
+          ]
+        },
+        {
+          "word": "PM",
+          "annotation": "Project Manager - 專案經理",
+          "aliases": [
+            "專案經理"
+          ]
+        },
+        {
+          "word": "SA",
+          "annotation": "System Analyst - 系統分析師",
+          "aliases": [
+            "系統分析師"
+          ]
+        },
+        {
+          "word": "FAE",
+          "annotation": "Field Application Engineer - 現場應用工程師",
+          "aliases": [
+            "現場工程師"
+          ]
+        },
+        {
+          "word": "AE",
+          "annotation": "Account Executive - 業務人員",
+          "aliases": [
+            "業務"
+          ]
+        },
+        {
+          "word": "BU",
+          "annotation": "Business Unit - 業務單位",
+          "aliases": [
+            "業務單位"
+          ]
+        },
+        {
+          "word": "湯惠剛",
+          "annotation": "副總經理 - Tommy",
+          "aliases": [
+            "Tommy",
+            "湯副總"
+          ]
+        },
+        {
+          "word": "陳文彬",
+          "annotation": "協理 - Victor",
+          "aliases": [
+            "Victor",
+            "陳協理"
+          ]
+        },
+        {
+          "word": "何宥霆",
+          "annotation": "公司人員 - Jimmy",
+          "aliases": [
+            "Jimmy"
+          ]
+        },
+        {
+          "word": "史明龍",
+          "annotation": "協理",
+          "aliases": [
+            "史協理"
+          ]
+        },
+        {
+          "word": "於佳霖",
+          "annotation": "公司人員",
+          "aliases": []
+        },
+        {
+          "word": "林正廷",
+          "annotation": "公司人員 - Tim",
+          "aliases": [
+            "Tim"
+          ]
+        },
+        {
+          "word": "林育菁",
+          "annotation": "公司人員 - Vivian",
+          "aliases": [
+            "Vivian"
+          ]
+        },
+        {
+          "word": "林麗鳳",
+          "annotation": "公司人員 - Lin",
+          "aliases": [
+            "Lin"
+          ]
+        },
+        {
+          "word": "游宛頤",
+          "annotation": "公司人員 - Wendy",
+          "aliases": [
+            "Wendy"
+          ]
+        },
+        {
+          "word": "王超群",
+          "annotation": "董事長",
+          "aliases": [
+            "王董事長",
+            "王董"
+          ]
+        },
+        {
+          "word": "石瑞麟",
+          "annotation": "公司人員 - Ray",
+          "aliases": [
+            "Ray"
+          ]
+        },
+        {
+          "word": "簡夢筑",
+          "annotation": "公司人員 - 夢夢",
+          "aliases": [
+            "夢夢"
+          ]
+        },
+        {
+          "word": "邱玉煌",
+          "annotation": "經理",
+          "aliases": [
+            "邱經理"
+          ]
+        },
+        {
+          "word": "陳正偉",
+          "annotation": "公司人員 - Simon",
+          "aliases": [
+            "Simon"
+          ]
+        },
+        {
+          "word": "黃欣婕",
+          "annotation": "公司人員",
+          "aliases": []
+        },
+        {
+          "word": "陳安倪",
+          "annotation": "公司人員 - Ann",
+          "aliases": [
+            "Ann"
+          ]
+        }
+      ]
+    },
+    "leo_products": {
+      "enabled": true,
+      "priority": "highest",
+      "description": "LEO Computer products and solutions",
+      "terms": [
+        {
+          "word": "RosettaBox",
+          "annotation": "國眾電腦的 AI 邊緣運算產品，結合語音轉錄與 AI 整理功能",
+          "aliases": [
+            "rosettabox",
+            "Rosetta Box",
+            "羅賽塔"
+          ]
+        },
+        {
+          "word": "Breeze ASR",
+          "annotation": "聯發科技開發的繁體中文語音識別系統",
+          "aliases": [
+            "Breeze",
+            "微風"
+          ]
+        },
+        {
+          "word": "faster-whisper",
+          "annotation": "Whisper 的 CTranslate2 加速版本，用於語音轉文字",
+          "aliases": [
+            "faster whisper"
+          ]
+        },
+        {
+          "word": "Jetson",
+          "annotation": "NVIDIA Jetson - 邊緣 AI 運算平台，用於 RosettaBox",
+          "aliases": [
+            "NVIDIA Jetson",
+            "Jetson Orin"
+          ]
+        }
+      ]
+    },
+    "vendors": {
+      "enabled": true,
+      "priority": "high",
+      "description": "Key vendors and partners",
+      "terms": [
+        {
+          "word": "NVIDIA",
+          "annotation": "輝達 - GPU 與 AI 運算平台領導廠商",
+          "aliases": [
+            "輝達",
+            "NV"
+          ]
+        },
+        {
+          "word": "Intel",
+          "annotation": "英特爾 - CPU 與 AI 晶片廠商",
+          "aliases": [
+            "英特爾"
+          ]
+        },
+        {
+          "word": "AMD",
+          "annotation": "超微 - CPU 與 GPU 廠商",
+          "aliases": [
+            "超微"
+          ]
+        },
+        {
+          "word": "Dell",
+          "annotation": "戴爾 - 伺服器與 PC 廠商",
+          "aliases": [
+            "戴爾"
+          ]
+        },
+        {
+          "word": "HPE",
+          "annotation": "Hewlett Packard Enterprise - 企業伺服器廠商",
+          "aliases": [
+            "HP Enterprise",
+            "慧與"
+          ]
+        },
+        {
+          "word": "Lenovo",
+          "annotation": "聯想 - PC 與伺服器廠商",
+          "aliases": [
+            "聯想"
+          ]
+        },
+        {
+          "word": "ASUS",
+          "annotation": "華碩 - PC 與伺服器廠商",
+          "aliases": [
+            "華碩"
+          ]
+        },
+        {
+          "word": "MediaTek",
+          "annotation": "聯發科技 - IC 設計與 AI 晶片廠商",
+          "aliases": [
+            "聯發科",
+            "MTK"
+          ]
+        },
+        {
+          "word": "Supermicro",
+          "annotation": "超微電腦 - 伺服器硬體廠商",
+          "aliases": [
+            "超微電腦",
+            "SMC"
+          ]
+        },
+        {
+          "word": "Cisco",
+          "annotation": "思科 - 網路設備廠商",
+          "aliases": [
+            "思科"
+          ]
+        },
+        {
+          "word": "VMware",
+          "annotation": "虛擬化與雲端平台廠商",
+          "aliases": []
+        },
+        {
+          "word": "Microsoft",
+          "annotation": "微軟 - 軟體與雲端服務廠商",
+          "aliases": [
+            "微軟",
+            "MS"
+          ]
+        },
+        {
+          "word": "AWS",
+          "annotation": "Amazon Web Services - 亞馬遜雲端服務",
+          "aliases": [
+            "Amazon Web Services"
+          ]
+        },
+        {
+          "word": "Azure",
+          "annotation": "微軟雲端平台",
+          "aliases": [
+            "Microsoft Azure"
+          ]
+        },
+        {
+          "word": "GCP",
+          "annotation": "Google Cloud Platform - Google 雲端平台",
+          "aliases": [
+            "Google Cloud"
+          ]
+        }
+      ]
+    },
+    "ai_models": {
+      "enabled": true,
+      "priority": "high",
+      "description": "AI models and platforms commonly discussed",
+      "terms": [
+        {
+          "word": "Claude",
+          "annotation": "Anthropic 開發的 AI 助手，強調安全性和有益性",
+          "aliases": [
+            "克勞德"
+          ]
+        },
+        {
+          "word": "Gemini",
+          "annotation": "Google 開發的多模態 AI 模型",
+          "aliases": [
+            "JAMLINE",
+            "JAMLINE AI"
+          ]
+        },
+        {
+          "word": "GPT",
+          "annotation": "Generative Pre-trained Transformer - OpenAI 開發的生成式預訓練模型",
+          "aliases": []
+        },
+        {
+          "word": "ChatGPT",
+          "annotation": "OpenAI 的對話式 AI 助手，基於 GPT 模型",
+          "aliases": []
+        },
+        {
+          "word": "豆包",
+          "annotation": "字節跳動開發的 AI 助手",
+          "aliases": [
+            "Doubao"
+          ]
+        },
+        {
+          "word": "Llama",
+          "annotation": "Meta 開發的開源大型語言模型",
+          "aliases": [
+            "LLaMA"
+          ]
+        },
+        {
+          "word": "Mistral",
+          "annotation": "Mistral AI 開發的高效開源模型",
+          "aliases": []
+        },
+        {
+          "word": "Qwen",
+          "annotation": "阿里巴巴開發的通義千問模型",
+          "aliases": [
+            "通義千問",
+            "千問"
+          ]
+        },
+        {
+          "word": "DeepSeek",
+          "annotation": "深度求索開發的開源大型語言模型",
+          "aliases": [
+            "深度求索"
+          ]
+        },
+        {
+          "word": "Whisper",
+          "annotation": "OpenAI 開發的語音識別模型，支援多語言轉錄",
+          "aliases": []
+        },
+        {
+          "word": "Ollama",
+          "annotation": "本地運行大型語言模型的開源工具",
+          "aliases": []
+        },
+        {
+          "word": "vLLM",
+          "annotation": "高效能 LLM 推理引擎，支援分頁注意力機制",
+          "aliases": []
+        },
+        {
+          "word": "NotebookLM",
+          "annotation": "Google 開發的 AI 筆記與研究助手，可生成 Podcast 風格摘要",
+          "aliases": [
+            "Notebook LM"
+          ]
+        },
+        {
+          "word": "Gemini 2.5",
+          "annotation": "Google 最新一代多模態 AI 模型",
+          "aliases": [
+            "Gemini 2.5"
+          ]
+        },
+        {
+          "word": "Gemini 2.5 Pro",
+          "annotation": "Google Gemini 2.5 的進階版本，具備更強推理能力",
+          "aliases": [
+            "Gemini Pro"
+          ]
+        },
+        {
+          "word": "gemini flash",
+          "annotation": "Google 開發的多模態 AI 模型其中的一個規格 叫 flash，目前有 2.5 flash",
+          "aliases": []
+        }
+      ]
+    },
+    "ai_companies": {
+      "enabled": true,
+      "priority": "high",
+      "description": "AI companies and organizations",
+      "terms": [
+        {
+          "word": "OpenAI",
+          "annotation": "人工智慧研究公司，開發 ChatGPT 和 GPT 系列模型",
+          "aliases": []
+        },
+        {
+          "word": "Anthropic",
+          "annotation": "AI 安全公司，開發 Claude AI 助手",
+          "aliases": []
+        },
+        {
+          "word": "Google",
+          "annotation": "全球科技巨頭，開發 Gemini AI 和多項服務",
+          "aliases": [
+            "谷歌"
+          ]
+        },
+        {
+          "word": "Meta",
+          "annotation": "前 Facebook，開發 Llama 開源模型",
+          "aliases": [
+            "臉書"
+          ]
+        },
+        {
+          "word": "ByteDance",
+          "annotation": "字節跳動 - TikTok 母公司，開發豆包 AI",
+          "aliases": [
+            "字節跳動"
+          ]
+        }
+      ]
+    },
+    "technology": {
+      "enabled": true,
+      "priority": "medium",
+      "description": "Technology and AI related terms",
+      "terms": [
+        {
+          "word": "AI",
+          "annotation": "Artificial Intelligence - 人工智慧技術的統稱",
+          "aliases": [
+            "人工智慧",
+            "人工智能"
+          ]
+        },
+        {
+          "word": "LLM",
+          "annotation": "Large Language Model - 大型語言模型",
+          "aliases": [
+            "大語言模型",
+            "大型語言模型"
+          ]
+        },
+        {
+          "word": "ASR",
+          "annotation": "Automatic Speech Recognition - 自動語音識別",
+          "aliases": [
+            "語音識別",
+            "語音辨識"
+          ]
+        },
+        {
+          "word": "TTS",
+          "annotation": "Text-to-Speech - 文字轉語音",
+          "aliases": [
+            "語音合成"
+          ]
+        },
+        {
+          "word": "NLP",
+          "annotation": "Natural Language Processing - 自然語言處理",
+          "aliases": [
+            "自然語言處理"
+          ]
+        },
+        {
+          "word": "RAG",
+          "annotation": "Retrieval-Augmented Generation - 檢索增強生成",
+          "aliases": [
+            "檢索增強生成"
+          ]
+        },
+        {
+          "word": "Fine-tuning",
+          "annotation": "微調 - 在預訓練模型上進行特定任務訓練",
+          "aliases": [
+            "微調"
+          ]
+        },
+        {
+          "word": "Prompt",
+          "annotation": "提示詞 - 給 AI 模型的輸入指令",
+          "aliases": [
+            "提示詞",
+            "提示"
+          ]
+        },
+        {
+          "word": "Token",
+          "annotation": "語言模型處理文字的最小單位",
+          "aliases": [
+            "令牌"
+          ]
+        },
+        {
+          "word": "API",
+          "annotation": "Application Programming Interface - 應用程式介面",
+          "aliases": [
+            "應用程式介面"
+          ]
+        },
+        {
+          "word": "GPU",
+          "annotation": "Graphics Processing Unit - 圖形處理器，用於加速 AI 運算",
+          "aliases": [
+            "顯示卡",
+            "顯卡"
+          ]
+        },
+        {
+          "word": "CUDA",
+          "annotation": "NVIDIA 的 GPU 平行運算平台",
+          "aliases": []
+        },
+        {
+          "word": "Docker",
+          "annotation": "容器化平台，用於打包和部署應用程式",
+          "aliases": [
+            "容器"
+          ]
+        },
+        {
+          "word": "Kubernetes",
+          "annotation": "容器編排平台，簡稱 K8s",
+          "aliases": [
+            "K8s"
+          ]
+        },
+        {
+          "word": "Edge AI",
+          "annotation": "邊緣 AI - 在本地設備上運行的 AI",
+          "aliases": [
+            "邊緣運算",
+            "Edge Computing"
+          ]
+        },
+        {
+          "word": "inference",
+          "annotation": "推理 - 使用訓練好的模型進行預測",
+          "aliases": [
+            "推理"
+          ]
+        },
+        {
+          "word": "quantization",
+          "annotation": "量化 - 降低模型精度以減少記憶體和加速推理",
+          "aliases": [
+            "量化"
+          ]
+        }
+      ]
+    },
+    "business": {
+      "enabled": true,
+      "priority": "medium",
+      "description": "Business and meeting terms",
+      "terms": [
+        {
+          "word": "KPI",
+          "annotation": "Key Performance Indicator - 關鍵績效指標",
+          "aliases": [
+            "關鍵績效指標"
+          ]
+        },
+        {
+          "word": "ROI",
+          "annotation": "Return on Investment - 投資報酬率",
+          "aliases": [
+            "投資報酬率"
+          ]
+        },
+        {
+          "word": "OKR",
+          "annotation": "Objectives and Key Results - 目標與關鍵結果管理法",
+          "aliases": []
+        },
+        {
+          "word": "MVP",
+          "annotation": "Minimum Viable Product - 最小可行產品",
+          "aliases": [
+            "最小可行產品"
+          ]
+        },
+        {
+          "word": "POC",
+          "annotation": "Proof of Concept - 概念驗證",
+          "aliases": [
+            "概念驗證"
+          ]
+        },
+        {
+          "word": "SLA",
+          "annotation": "Service Level Agreement - 服務等級協議",
+          "aliases": [
+            "服務等級協議"
+          ]
+        },
+        {
+          "word": "NDA",
+          "annotation": "Non-Disclosure Agreement - 保密協議",
+          "aliases": [
+            "保密協議"
+          ]
+        },
+        {
+          "word": "RFP",
+          "annotation": "Request for Proposal - 需求建議書",
+          "aliases": [
+            "需求建議書"
+          ]
+        },
+        {
+          "word": "RFQ",
+          "annotation": "Request for Quotation - 報價請求",
+          "aliases": [
+            "報價請求"
+          ]
+        },
+        {
+          "word": "Q1",
+          "annotation": "第一季度（1-3月）",
+          "aliases": [
+            "第一季"
+          ]
+        },
+        {
+          "word": "Q2",
+          "annotation": "第二季度（4-6月）",
+          "aliases": [
+            "第二季"
+          ]
+        },
+        {
+          "word": "Q3",
+          "annotation": "第三季度（7-9月）",
+          "aliases": [
+            "第三季"
+          ]
+        },
+        {
+          "word": "Q4",
+          "annotation": "第四季度（10-12月）",
+          "aliases": [
+            "第四季"
+          ]
+        },
+        {
+          "word": "Roadmap",
+          "annotation": "路線圖 - 產品或專案的發展計劃",
+          "aliases": [
+            "路線圖",
+            "藍圖"
+          ]
+        },
+        {
+          "word": "Milestone",
+          "annotation": "里程碑 - 專案的重要節點",
+          "aliases": [
+            "里程碑"
+          ]
+        },
+        {
+          "word": "Deliverable",
+          "annotation": "交付物 - 專案需要產出的成果",
+          "aliases": [
+            "交付物"
+          ]
+        },
+        {
+          "word": "Stakeholder",
+          "annotation": "利害關係人 - 與專案或公司有利益關係的人",
+          "aliases": [
+            "利害關係人"
+          ]
+        }
+      ]
+    },
+    "custom": {
+      "enabled": true,
+      "priority": "high",
+      "description": "User-defined custom terms - add your own",
+      "terms": []
+    }
+  },
+  "global_settings": {
+    "max_words_per_request": 200,
+    "auto_load_enabled_categories": true,
+    "case_sensitive": false,
+    "allow_partial_match": true,
+    "include_annotations_in_prompt": false,
+    "include_aliases_in_prompt": true,
+    "use_in_whisper_prompt": true,
+    "use_in_refinement_agent": true
+  }
+}

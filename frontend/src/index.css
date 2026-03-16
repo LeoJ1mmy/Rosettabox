@@ -1,0 +1,355 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+
+  /* Dark Mode Colors (Default) */
+  --color-glass-100: rgba(255, 255, 255, 0.06);
+  --color-glass-200: rgba(255, 255, 255, 0.10);
+  --color-glass-300: rgba(255, 255, 255, 0.15);
+  --color-glass-dark: rgba(0, 0, 0, 0.4);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+
+  /* Light Mode Colors (will be applied via .light class) */
+  --color-glass-light-100: rgba(255, 255, 255, 0.7);
+  --color-glass-light-200: rgba(255, 255, 255, 0.8);
+  --color-glass-light-300: rgba(255, 255, 255, 0.9);
+  --color-glass-light-border: rgba(0, 0, 0, 0.1);
+
+  --color-brand-primary: #3b82f6;
+  --color-brand-secondary: #0ea5e9;
+  --color-brand-accent: #10b981;
+
+  --animate-blob: blob 7s infinite;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  --backdrop-blur-xs: 2px;
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-size: 16px; /* Increased base font size */
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  /* Dark Mode (Default) */
+  :root, :root.dark {
+    --bg-primary: theme('colors.slate.900');
+    --text-primary: theme('colors.slate.100');
+    --text-secondary: theme('colors.slate.200');
+    --text-muted: theme('colors.slate.300');
+
+    /* Glass Colors - Dark Mode */
+    --glass-100: rgba(255, 255, 255, 0.06);
+    --glass-200: rgba(255, 255, 255, 0.10);
+    --glass-300: rgba(255, 255, 255, 0.15);
+    --glass-dark: rgba(0, 0, 0, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.12);
+
+    /* Navy blue-tinted dark gradient */
+    background: linear-gradient(225deg,
+      rgba(5, 7, 15, 1.000) 0.000%,
+      rgba(8, 11, 20, 1.000) 8.333%,
+      rgba(11, 15, 26, 1.000) 16.667%,
+      rgba(14, 18, 30, 1.000) 25.000%,
+      rgba(17, 21, 34, 1.000) 33.333%,
+      rgba(20, 24, 38, 1.000) 41.667%,
+      rgba(23, 27, 42, 1.000) 50.000%,
+      rgba(26, 30, 44, 1.000) 58.333%,
+      rgba(29, 33, 48, 1.000) 66.667%,
+      rgba(32, 36, 50, 1.000) 75.000%,
+      rgba(35, 39, 53, 1.000) 83.333%,
+      rgba(37, 41, 56, 1.000) 91.667%,
+      rgba(39, 43, 58, 1.000) 100.000%
+    );
+    background-attachment: fixed;
+    color: var(--text-primary);
+  }
+
+  /* Light Mode */
+  :root.light {
+    --bg-primary: theme('colors.slate.50');
+    --text-primary: theme('colors.slate.900');
+    --text-secondary: theme('colors.slate.700');
+    --text-muted: theme('colors.slate.600');
+
+    /* Glass Colors - Light Mode - Enhanced borders */
+    --glass-100: rgba(255, 255, 255, 0.95);
+    --glass-200: rgba(255, 255, 255, 0.98);
+    --glass-300: rgba(255, 255, 255, 1);
+    --glass-dark: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.15);
+
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    background-image:
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass-100 backdrop-blur-xl border border-glass-border shadow-lg rounded-2xl;
+  }
+
+  /* Enhanced Light Mode glass-panel with stronger borders */
+  :root.light .glass-panel {
+    @apply bg-white/95 border-slate-300;
+    box-shadow:
+      0 4px 20px 0 rgba(0, 0, 0, 0.08),
+      0 1px 3px 0 rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .glass-card {
+    @apply bg-glass-200 backdrop-blur-md border border-glass-border shadow-md rounded-xl transition-all duration-300 hover:bg-glass-300 hover:shadow-xl;
+  }
+
+  :root.light .glass-card {
+    @apply bg-white border-slate-300 hover:border-slate-400;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  :root.light .glass-card:hover {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  :root.dark .glass-card {
+    @apply hover:border-white/25;
+  }
+
+  /* Enhanced Queue Card Styles */
+  .queue-task-card {
+    @apply bg-glass-200 backdrop-blur-md border border-glass-border shadow-md rounded-xl transition-all duration-300 relative overflow-hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%);
+    box-shadow:
+      0 8px 32px 0 rgba(31, 38, 135, 0.15),
+      0 2px 8px 0 rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .queue-task-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .queue-task-card:hover::before {
+    opacity: 1;
+  }
+
+  .queue-task-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 12px 40px 0 rgba(31, 38, 135, 0.2),
+      0 4px 16px 0 rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  }
+
+  /* Status-specific left border colors */
+  .queue-task-card.status-pending {
+    border-left: 4px solid #f59e0b;
+  }
+
+  .queue-task-card.status-processing {
+    border-left: 4px solid #3b82f6;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%);
+  }
+
+  .queue-task-card.status-completed {
+    border-left: 4px solid #10b981;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%);
+  }
+
+  .queue-task-card.status-failed {
+    border-left: 4px solid #ef4444;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%);
+  }
+
+  /* Task Status Icons Enhanced - Compact Version */
+  .task-status-icon {
+    @apply flex items-center justify-center w-9 h-9 rounded-lg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .task-status-icon.pending {
+    @apply bg-amber-500/20 text-amber-400;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  }
+
+  .task-status-icon.processing {
+    @apply bg-blue-500/20 text-blue-400;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .task-status-icon.completed {
+    @apply bg-emerald-500/20 text-emerald-400;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  .task-status-icon.failed {
+    @apply bg-red-500/20 text-red-400;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  }
+
+  /* Enhanced Progress Bar - Compact Version */
+  .task-progress-bar {
+    @apply h-1.5 bg-glass-100 rounded-full overflow-hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .task-progress-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out relative;
+    background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+
+  .task-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Status Badge Enhanced - Compact Version */
+  .status-badge {
+    @apply px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .status-badge.pending {
+    @apply bg-amber-500/20 text-amber-300 border-amber-500/30;
+  }
+
+  .status-badge.processing {
+    @apply bg-blue-500/20 text-blue-300 border-blue-500/30;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .status-badge.completed {
+    @apply bg-emerald-500/20 text-emerald-300 border-emerald-500/30;
+  }
+
+  .status-badge.failed {
+    @apply bg-red-500/20 text-red-300 border-red-500/30;
+  }
+
+  .glass-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300
+           bg-brand-primary/80 hover:bg-brand-primary text-white shadow-lg shadow-brand-primary/20
+           hover:shadow-brand-primary/40 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .glass-button-secondary {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300
+           bg-glass-200 hover:bg-glass-300 border border-glass-border
+           hover:border-slate-400 active:scale-95;
+  }
+
+  :root.light .glass-button-secondary {
+    @apply text-slate-900;
+  }
+
+  :root.dark .glass-button-secondary {
+    @apply text-white hover:border-white/30;
+  }
+
+  .glass-input {
+    @apply w-full bg-glass-100 border border-glass-border rounded-lg px-5 py-3
+           focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary/50 transition-all duration-300;
+  }
+
+  :root.light .glass-input {
+    @apply text-slate-900 placeholder-slate-500 bg-white border-slate-300;
+  }
+
+  :root.light .glass-input:focus {
+    @apply border-brand-primary ring-brand-primary/30;
+  }
+
+  :root.dark .glass-input {
+    @apply text-white placeholder-slate-400;
+  }
+
+  .glass-label {
+    @apply block text-sm font-medium mb-2;
+  }
+
+  :root.light .glass-label {
+    @apply text-slate-700;
+  }
+
+  :root.dark .glass-label {
+    @apply text-slate-200;
+  }
+
+  /* Theme-aware text utilities */
+  .text-theme-primary {
+    @apply text-slate-900 dark:text-slate-100;
+  }
+
+  .text-theme-secondary {
+    @apply text-slate-700 dark:text-slate-300;
+  }
+
+  .text-theme-muted {
+    @apply text-slate-600 dark:text-slate-300;
+  }
+
+  .text-theme-inverse {
+    @apply text-slate-100 dark:text-slate-900;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-glass-300 rounded-full hover:bg-glass-border;
+}
