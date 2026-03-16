@@ -1,0 +1,44 @@
+# Environment & secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+credentials.json
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+
+# Data
+*.sqlite3
+*.db
+task_storage/
